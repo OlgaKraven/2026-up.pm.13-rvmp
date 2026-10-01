@@ -1,14 +1,3 @@
 using UnityEngine;
-
-public static class GameBootstrap
-{
-    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
-    private static void CreateGame()
-    {
-        if (Object.FindAnyObjectByType<GameManager>() != null)
-            return;
-
-        var root = new GameObject("CrystalQuest");
-        root.AddComponent<GameManager>();
-    }
-}
+// Сцена сохраняет все объекты. Автоматического создания второго уровня нет.
+public static class GameBootstrap { }

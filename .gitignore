@@ -1,6 +1,5 @@
 __pycache__/
 .venv/
-site/
 work/
 tmp/
 .playwright-cli/
@@ -12,3 +11,8 @@ unity-project/UserSettings/
 unity-project/Build/
 unity-project/compile.log
 .DS_Store
+
+local/
+verification/
+evidence.json
+passport.md
