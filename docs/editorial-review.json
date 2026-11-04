@@ -1,0 +1,17 @@
+{
+  "scope": "unity-editorial",
+  "date": "2026-11-05",
+  "unity_execution": false,
+  "fingerprint": "cd70e53fea9a284c6ba4d95a95ee7da9c2c41a72872ccaa4121d5fb503ef6d9f",
+  "checks": {
+    "content": "Full assignment before files; one own project; scene save, messages and six rule families explained. Source-code reference consolidated without dropping code.",
+    "variants": "All 30 names, palettes, entities and special signals preserved; separate links to common starter and demonstration.",
+    "downloads": "Each ZIP contains 85 expected files, byte-matched to current sources.",
+    "pdf": "69 and 63 portrait A4 pages, approved margins/font sizes, all pages rasterized and visually inspected with additional text/bounds/glyph checks.",
+    "report": "Retained common master; six stages, 15 figure slots, 20 pages; all pages inspected; private text/image insertion copy saved separately."
+  },
+  "limits": [
+    "No new Unity execution, compilation, build or screenshots.",
+    "Existing illustrations show the earlier demonstration. New tutorial listings are editorial examples, not a tested build."
+  ]
+}

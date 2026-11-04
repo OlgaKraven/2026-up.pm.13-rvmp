@@ -1,5 +1,7 @@
+site/** -text
+forms/** -text
+methodist/assets/fonts/** -text
 *.pdf binary
+*.docx binary
 *.zip binary
-*.png binary
-*.jpg binary
-*.jpeg binary
+*.ttf binary

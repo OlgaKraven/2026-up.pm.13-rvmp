@@ -19,7 +19,7 @@ def check_pdf_content(site, data):
     from pypdf import PdfReader
     def compact(text):
         return re.sub(r'\s+', '', text)
-    for name, specs in [('assignment', data['assignment']+data['areas']), ('guide', data['guide'])]:
+    for name, specs in [('assignment', data['assignment']+data['files']+data['guide']), ('guide', data['areas'])]:
         text = compact(''.join(p.extract_text() for p in PdfReader(site/f'downloads/{name}.pdf').pages))
         for page in specs:
             for block in page['blocks']:
@@ -75,8 +75,8 @@ def check_output(site):
         if not reader.pages:
             raise ValueError('Empty PDF')
         for page in reader.pages:
-            if abs(float(page.mediabox.width)-841.89) > 1 or abs(float(page.mediabox.height)-595.28) > 1:
-                raise ValueError('Expected landscape A4')
+            if abs(float(page.mediabox.width)-595.28) > 1 or abs(float(page.mediabox.height)-841.89) > 1:
+                raise ValueError('Expected portrait A4')
         counts[name] = len(reader.pages)
     return counts
 
@@ -98,6 +98,8 @@ def build(root, release=False, evidence=None):
         (stage/'downloads').mkdir()
         for asset in ('style.css', 'favicon.svg'):
             shutil.copyfile(ASSETS/asset, stage/'assets'/asset)
+        shutil.copytree(ASSETS/'fonts', stage/'assets/fonts')
+        shutil.copyfile(root/'forms/Отчет о выполнении.docx', stage/'downloads/Отчет о выполнении.docx')
         for page in pages(data):
             for block in page['blocks']:
                 if block['kind'] == 'image':
@@ -114,7 +116,7 @@ def build(root, release=False, evidence=None):
                         archive.write(source_path(root, name), name)
         for name, section in [('index.html', 'assignment'), ('lessons.html', 'guide'), ('areas.html', 'areas')]:
             (stage/name).write_text(html_page(data, section, release), encoding='utf-8')
-        (stage/'downloads/report-template.md').write_text(report_markdown(data), encoding='utf-8')
+        # The editable common DOCX is the only report form.
         for section in ('assignment', 'guide'):
             pdf(root, stage/f'downloads/{section}.pdf', data, section, release)
         (stage/MARKER).write_text('Agent Methodist\n', encoding='utf-8')

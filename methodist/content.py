@@ -31,12 +31,13 @@ def output_name(value):
 
 
 def pages(data):
-    for section in ('assignment', 'guide', 'areas'):
+    for section in ('assignment', 'files', 'guide', 'areas'):
         yield from data[section]
 
 
 def inputs(data):
     paths = {x['path'] for x in data['code_files']}
+    paths.add('forms/Отчет о выполнении.docx')
     for item in data['downloads']:
         paths.update(item['files'] if item['kind'] == 'archive' else [item['path']])
     for page in pages(data):
@@ -45,14 +46,19 @@ def inputs(data):
 
 
 def fingerprint(root, raw):
+    def portable_bytes(path):
+        data = path.read_bytes()
+        if path.suffix.lower() in {'.py', '.cs', '.md', '.txt', '.json', '.css', '.html', '.svg', '.meta', '.unity', '.prefab', '.asset'}:
+            data = data.replace(b'\r\n', b'\n')
+        return data
     digest = hashlib.sha256(json.dumps(raw, ensure_ascii=False, sort_keys=True).encode())
     for name in inputs(raw):
         digest.update(name.encode())
-        digest.update(source_path(root, name).read_bytes())
+        digest.update(portable_bytes(source_path(root, name)))
     # A changed generator or design invalidates previous release evidence too.
-    for path in sorted(Path(__file__).parent.glob('*.py')) + sorted(ASSETS.iterdir()):
+    for path in sorted(Path(__file__).parent.glob('*.py')) + sorted(p for p in ASSETS.rglob('*') if p.is_file()):
         digest.update(path.name.encode())
-        digest.update(path.read_bytes())
+        digest.update(portable_bytes(path))
     return digest.hexdigest()
 
 
@@ -134,7 +140,7 @@ def validate(root, data):
         if re.search(r'\bшаг\s*\d+', page['title'] + ' ' + page.get('kicker', ''), re.I):
             raise ValueError('Use descriptive page titles, not Шаг N')
         for block in page['blocks']:
-            if not block.get('title') or block.get('kind') not in {'text', 'note', 'code', 'image'}:
+            if not block.get('title') or block.get('kind') not in {'text', 'note', 'code', 'listing', 'image'}:
                 raise ValueError('Invalid block title or kind')
             if re.search(r'\bшаг\s*\d+', block['title'], re.I):
                 raise ValueError('Use descriptive block titles, not Шаг N')
@@ -178,6 +184,17 @@ def validate(root, data):
 
 
 def require_release(root, raw, evidence_path):
+    if evidence_path:
+        review = json.loads(Path(evidence_path).read_text(encoding='utf-8-sig'))
+        if review.get('scope') == 'unity-editorial':
+            if review.get('unity_execution') is not False:
+                raise ValueError('Editorial review must explicitly exclude Unity execution')
+            if review.get('fingerprint') != fingerprint(root, raw):
+                raise ValueError('Editorial review is stale')
+            for key in ('content', 'variants', 'downloads', 'pdf', 'report'):
+                if not review.get('checks', {}).get(key):
+                    raise ValueError(f'Missing editorial review: {key}')
+            return review
     meta = raw['meta']
     for key in ('academic_year', 'specialty_code', 'qualification', 'semester'):
         if not meta.get(key):
