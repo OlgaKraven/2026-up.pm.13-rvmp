@@ -2,7 +2,7 @@
   "scope": "unity-editorial",
   "date": "2026-11-05",
   "unity_execution": false,
-  "fingerprint": "cd70e53fea9a284c6ba4d95a95ee7da9c2c41a72872ccaa4121d5fb503ef6d9f",
+  "fingerprint": "d95a520f9a4746f73fff14d89feff7c2e56146032291b1778ca9843523fdf61b",
   "checks": {
     "content": "Full assignment before files; one own project; scene save, messages and six rule families explained. Source-code reference consolidated without dropping code.",
     "variants": "All 30 names, palettes, entities and special signals preserved; separate links to common starter and demonstration.",

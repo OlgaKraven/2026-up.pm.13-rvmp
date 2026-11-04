@@ -56,8 +56,10 @@ def fingerprint(root, raw):
         digest.update(name.encode())
         digest.update(portable_bytes(source_path(root, name)))
     # A changed generator or design invalidates previous release evidence too.
-    for path in sorted(Path(__file__).parent.glob('*.py')) + sorted(p for p in ASSETS.rglob('*') if p.is_file()):
-        digest.update(path.name.encode())
+    generators = sorted(Path(__file__).parent.glob('*.py'), key=lambda p: p.name)
+    assets = sorted((p for p in ASSETS.rglob('*') if p.is_file()), key=lambda p: p.relative_to(ASSETS).as_posix())
+    for path in generators + assets:
+        digest.update(path.relative_to(Path(__file__).parent).as_posix().encode())
         digest.update(portable_bytes(path))
     return digest.hexdigest()
 
