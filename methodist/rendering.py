@@ -84,6 +84,9 @@ def html_page(data, section, release=False):
     routes=[('assignment','index.html','Задание'),('guide','lessons.html','Инструкция и образец'),('areas','areas.html','Предметные области')]
     nav=''.join(f'<a href="{url}" '+('aria-current="page"' if key==section else '')+f'>{label}</a>' for key,url,label in routes)
     body=[]
+    if section=='areas':
+        selection=next(b for b in data['assignment'][0]['blocks'] if b['title']=='Выбрать вариант по списку группы')
+        body.append('<article class="chapter"><header class="doc-head"><p class="section-id">ПМ.13</p><h2>Список предметных областей</h2></header><div class="steps"><div class="step"><span class="number">1</span><section class="card"><h3>'+ESC(selection['title'])+'</h3><p>'+ESC(selection['text'])+'</p><p><a href="downloads/assignment.pdf">Открыть методические рекомендации (PDF)</a></p></section></div></div></article>')
     if section=='assignment':
         links=[('assignment.pdf','Методические рекомендации (PDF)'),('guide.pdf','Список предметных областей (PDF)'),('Отчет о выполнении.docx','Форма отчёта (DOCX)')]
         body.append('<div class="downloads">'+''.join(f'<a href="downloads/{quote(n)}">{ESC(label)}</a>' for n,label in links)+'</div>')
@@ -251,6 +254,12 @@ def pdf(root, target, data, section, release=False):
     specs=data['assignment']+data['files']+data['guide'] if section=='assignment' else data['areas']
     label='Методические рекомендации' if section=='assignment' else 'Список предметных областей'
     story=[]
+    if section=='guide':
+        selection=next(b for b in data['assignment'][0]['blocks'] if b['title']=='Выбрать вариант по списку группы')
+        link=download_url(data,'assignment.pdf',True)
+        story.extend([Banner('УП ПМ.13',label,'guide-cover'),Spacer(1,18),card(1,selection),
+                      Paragraph('В закладках PDF открыть свой вариант. Его также можно найти через Ctrl+F по словам «Вариант NN».',body),
+                      Paragraph(f'<link href="{ESC(link)}" color="#b01010"><u>Открыть методические рекомендации (PDF)</u></link>',body)])
     for i,page in enumerate(specs,1):
         if story:story.append(PageBreak() if section=='guide' else Spacer(1,18))
         tag=f'ПМ.13 · {i}. '+('Вариант '+str(page['id']).zfill(2) if 'id' in page else page.get('kicker','Оформление игрового продукта'))

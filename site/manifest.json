@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "fingerprint": "d95a520f9a4746f73fff14d89feff7c2e56146032291b1778ca9843523fdf61b",
+  "fingerprint": "ac7ed78edc1bedca98ce5f48430403876ee9bbacd290536c144979a0a2549251",
   "release": true,
   "files": {
-    "areas.html": "ae0778750aa7314dd0b04c0b8d62ecb0f973aa7d5fcee6dc5718d607e06320a4",
+    "areas.html": "82f15bb87e5d9f21f977ff90cd236658dc7daa7f8a4837818ee1a31fb523d4f8",
     "assets/favicon.svg": "4d11c3923a0c231e244ba64f5714e45fd998f411b1e0ffa679dfc7979c59fe1d",
     "assets/fonts/GolosText-Bold.ttf": "faf2fc983f32b4dfd140079b72d616cc720457a44b5bd16f0f8a4b1e680c6e8e",
     "assets/fonts/GolosText-Regular.ttf": "77ae2b0a6eb640aaea1858908275f99d1b753208b44529845637093dac353747",
@@ -19,7 +19,7 @@
     "assets/screenshots/b2bb904e8c2fc6fd.png": "0a62a698ea435ee47675223f0337cc17c73b05279b09001976f363d7d5d164dd",
     "assets/screenshots/bcf69c455265dd9e.png": "259c6e586666aacad4b8de579c97f4a648881709e03ffb12bdb72a06ef8cf94a",
     "assets/style.css": "7ba3c8953c01054bc4a0a3ac118c1611747cfbb110340a055e76a2d88d68da35",
-    "downloads/assignment.pdf": "53b7ad0501cadfd3c7fdb9f5a1a8f2396a78aeff22349c66b2b3614249700ba3",
+    "downloads/assignment.pdf": "a9ab1fb9dc1b76384cca5eb51560f16bca8ae39632e5f119570b3536b5dd3d59",
     "downloads/AudioFeedback.cs": "7df489219b04b7b7f1d0a5f9fcaf8f85e01671935862cf732de1be3155386a82",
     "downloads/CameraFit.cs": "aa864e3957a8e04433108e19e7182389356efdb3f3a8c6413a5cbcd6e54b741c",
     "downloads/Collectible.cs": "74b7fcc0011d59f361bf855ce6a79efab8ba97bbd9ebdf8b39b8366bddec1dc4",
@@ -29,7 +29,7 @@
     "downloads/DirectionalButton.cs": "b1a526cdcfb86999b5950db331fe8e3fb1484e2d448bc2ce3e86678bd4ef328b",
     "downloads/ExitZone.cs": "953200dce8ffd5d956b3b1fc17f7d3d144dc0173376ad3cd84ed47fa914388bc",
     "downloads/GameManager.cs": "3378ae70d1db1281c214f9a3658699167ebf0e5091c05c745d26ff30efc40ba1",
-    "downloads/guide.pdf": "4884b5f78bc6908478636f375e3e2c5e3c5dcfe05b0bb384193060ca956bfda7",
+    "downloads/guide.pdf": "8f5f6baa45b50d13d738ed05ae8d35b6cf29316ec03b53ec6a524c12aa6c35ec",
     "downloads/Hazard.cs": "3f1a2a9c65474271cb9f49659132f653498d0373e10619f5f465e1ce7f68ea67",
     "downloads/HUDView.cs": "18a20643c0c7e341541daf08fa5fbf07ff09b970e3d66cfa07e95884e6bc87f9",
     "downloads/PlayerController.cs": "ccace5402774d1ffec6d89d4327eda81906d037e29b3cbde31a7b14d1c0420d6",
@@ -37,7 +37,7 @@
     "downloads/ThemeRole.cs": "a0e684a2f50ced53230698b03db2fba7d599bc8499af7c694170f1a21bfed3ce",
     "downloads/VisualTheme.cs": "8f580111c33e97e1ecd9e3176797c92a1815e01840b4c6bab3384d487524c423",
     "downloads/\u041e\u0442\u0447\u0435\u0442 \u043e \u0432\u044b\u043f\u043e\u043b\u043d\u0435\u043d\u0438\u0438.docx": "2c4e59f175c9991a5f57cbd88067413c66aa15c713d3881fc476e1e1114c8359",
-    "index.html": "ef40fd074cc7ba7282bb64af912c01238233de025953ea07ceb9cc1796181e34",
-    "lessons.html": "36ed860beeb943eb52d0b5d4445b06f58e81fe9e498647e1d94b943ae437fe03"
+    "index.html": "abd2dc6ff1b275080c1a7652cfac32fe3b4c712f614bf23ad71383d0ab321de6",
+    "lessons.html": "54ae0cd7c5bd1a1500f8af5f0cd96df1ae79bb3078f567de2fa876b66a9122a1"
   }
 }

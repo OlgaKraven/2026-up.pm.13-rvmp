@@ -1,17 +1,17 @@
 {
   "scope": "unity-editorial",
-  "date": "2026-11-05",
+  "date": "2026-11-08",
   "unity_execution": false,
-  "fingerprint": "d95a520f9a4746f73fff14d89feff7c2e56146032291b1778ca9843523fdf61b",
+  "fingerprint": "ac7ed78edc1bedca98ce5f48430403876ee9bbacd290536c144979a0a2549251",
   "checks": {
-    "content": "Full assignment before files; one own project; scene save, messages and six rule families explained. Source-code reference consolidated without dropping code.",
-    "variants": "All 30 names, palettes, entities and special signals preserved; separate links to common starter and demonstration.",
-    "downloads": "Each ZIP contains 85 expected files, byte-matched to current sources.",
-    "pdf": "69 and 63 portrait A4 pages, approved margins/font sizes, all pages rasterized and visually inspected with additional text/bounds/glyph checks.",
-    "report": "Retained common master; six stages, 15 figure slots, 20 pages; all pages inspected; private text/image insertion copy saved separately."
+    "content": "Verified the textual route from roster to Student scene, local publication, clean repository download and four submissions in the LMS.",
+    "variants": "Matched all 30 numbers, subjects and rule families to the starter profiles. Reviewed the palette, HUD and distinct signal in every card.",
+    "downloads": "Each archive contains 85 expected files. The original delivered archives match the repository inputs and their exact binary files are retained.",
+    "pdf": "Rendered and reviewed all 71 method and 61 subject-list pages, with full text, anchors, links and portrait A4 verified by the generator.",
+    "report": "Verified that the same Word form is provided in the previous student ZIP and the course. Checked 15 figure slots and the repository field."
   },
   "limits": [
-    "No new Unity execution, compilation, build or screenshots.",
-    "Existing illustrations show the earlier demonstration. New tutorial listings are editorial examples, not a tested build."
+    "This is a textual and PDF review. Unity execution, compilation and target builds were outside the requested scope.",
+    "Existing images illustrate the retained demonstration."
   ]
 }
